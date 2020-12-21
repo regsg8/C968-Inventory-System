@@ -1,0 +1,14 @@
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\bin\Debug\RegGarrettInventorySystem.exe.config
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\bin\Debug\RegGarrettInventorySystem.exe
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\bin\Debug\RegGarrettInventorySystem.pdb
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.csprojAssemblyReference.cache
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.AddProductForm.resources
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.MainScreenForm.resources
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.AddPartForm.resources
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.ModifyPartForm.resources
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.ModifyProductForm.resources
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.Properties.Resources.resources
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.csproj.GenerateResource.cache
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.csproj.CoreCompileInputs.cache
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.exe
+C:\Users\Reg Garrett\source\repos\RegGarrettInventorySystem\RegGarrettInventorySystem\obj\Debug\RegGarrettInventorySystem.pdb
