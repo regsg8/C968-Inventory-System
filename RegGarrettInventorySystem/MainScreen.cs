@@ -92,9 +92,9 @@ namespace RegGarrettInventorySystem
 
         private void productModifyButton_Click(object sender, EventArgs e)
         {
-            ModifyProductForm modifyProductForm = new ModifyProductForm();
-            modifyProductForm.Show();
-            this.Hide();
+            int productIndex = partDataGrid.CurrentCell.RowIndex;
+            Product selectProduct = (Product)productDataGrid.CurrentRow.DataBoundItem;
+            new ModifyProductForm(selectProduct, productIndex).ShowDialog();
         }
 
 

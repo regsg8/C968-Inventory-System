@@ -125,6 +125,7 @@ namespace RegGarrettInventorySystem
             }
             else
             {
+                this.Hide();
                 int newID = (Inventory.Products[Inventory.Products.Count - 1].ProductID + 1);
                 Product newProduct = new Product(newID, nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text));
                 Inventory.AddProduct(newProduct);

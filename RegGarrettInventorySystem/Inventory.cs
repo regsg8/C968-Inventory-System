@@ -81,7 +81,6 @@ namespace RegGarrettInventorySystem
         public static void AddPart(Part part)
         {
             Parts.Add(part);
-            MessageBox.Show($"{part.Name} added!");
         }
         public static bool DeletePart(int id)
         {

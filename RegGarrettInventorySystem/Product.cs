@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace RegGarrettInventorySystem
 {
-    class Product
+    public class Product
     {
         public BindingList<Part> AssociatedParts = new BindingList<Part>();
         
