@@ -52,8 +52,6 @@ namespace RegGarrettInventorySystem
             productDataGrid.AllowUserToResizeRows = false;
             productDataGrid.MultiSelect = false;
             //productDataGrid.ClearSelection();
-            Product loadProd1 = new Product(11, "Purple Bike", 12, 80, 1, 40);
-            Inventory.Products.Add(loadProd1);
         }
 
         //Part event handlers
@@ -99,19 +97,53 @@ namespace RegGarrettInventorySystem
         }
 
 
-        //Search event handlers
+        //Search handlers
         private void partSearchButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("part search Button clicked");
+            BindingList<Part> searchResults = new BindingList<Part>();
+            bool found = false;
+            for (int i = 0; i < Inventory.Parts.Count; i++)
+            {
+                if (Inventory.Parts[i].Name.ToLower().Contains(partsSearch.Text.ToLower()))
+                {
+                    searchResults.Add(Inventory.Parts[i]);
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                MessageBox.Show("No parts match your search");
+                partDataGrid.DataSource = Inventory.Parts;
+            }
+            else partDataGrid.DataSource = searchResults;
+
+            partDataGrid.ClearSelection();
         }
 
         private void productSearchButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("product search Button clicked");
+            BindingList<Product> searchResults = new BindingList<Product>();
+            bool found = false;
+            for (int i = 0; i < Inventory.Products.Count; i++)
+            {
+                if (Inventory.Products[i].Name.ToLower().Contains(productSearch.Text.ToLower()))
+                {
+                    searchResults.Add(Inventory.Products[i]);
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                MessageBox.Show("No products match your search");
+                productDataGrid.DataSource = Inventory.Products;
+            }
+            else productDataGrid.DataSource = searchResults;
+
+            productDataGrid.ClearSelection();
         }
 
 
-        //Exit event handler
+        //Exit handler
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();

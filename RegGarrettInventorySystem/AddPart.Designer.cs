@@ -129,7 +129,7 @@ namespace RegGarrettInventorySystem
             this.variableLabel.Name = "variableLabel";
             this.variableLabel.Size = new System.Drawing.Size(90, 13);
             this.variableLabel.TabIndex = 0;
-            this.variableLabel.Text = "Company Name";
+            this.variableLabel.Text = "Machine ID";
             this.variableLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // nameInput
