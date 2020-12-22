@@ -66,8 +66,6 @@ namespace RegGarrettInventorySystem
                     Inhouse newInhouse = new Inhouse(newID, nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), int.Parse(variableInput.Text));
                     Inventory.Parts.Add(newInhouse);
                     MessageBox.Show($"{nameInput.Text} added!");
-                    MainScreenForm mainScreenForm = new MainScreenForm();
-                    mainScreenForm.Show();
                     this.Close();
                 }
                 else
@@ -76,8 +74,6 @@ namespace RegGarrettInventorySystem
                     Outsourced newOutsourced = new Outsourced(newID, nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), variableInput.Text);
                     Inventory.Parts.Add(newOutsourced);
                     MessageBox.Show($"{nameInput.Text} added!");
-                    MainScreenForm mainScreenForm = new MainScreenForm();
-                    mainScreenForm.Show();
                     this.Close();
                 }
             }
@@ -85,8 +81,6 @@ namespace RegGarrettInventorySystem
 
         private void cancelPart_Click(object sender, EventArgs e)
         {
-            MainScreenForm mainScreenForm = new MainScreenForm();
-            mainScreenForm.Show();
             this.Close();
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RegGarrettInventorySystem
 {
-    abstract class Part
+    public abstract class Part
     {
         public int PartID { get; set; }
         public string Name { get; set; }

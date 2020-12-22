@@ -63,16 +63,25 @@ namespace RegGarrettInventorySystem
         private void partAddButton_Click(object sender, EventArgs e)
         {
             AddPartForm addPartForm = new AddPartForm();
-            addPartForm.Show();
-            this.Hide();
+            addPartForm.ShowDialog();
         }
 
         private void partModifyButton_Click(object sender, EventArgs e)
         {
-            ModifyPartForm modifyPartForm = new ModifyPartForm();
-            modifyPartForm.Show();
-            MessageBox.Show($"{this.Name}");
-            this.Hide();
+            if(partDataGrid.CurrentRow.DataBoundItem.GetType() == Inventory.Parts[0].GetType())
+            {
+                int partIndex = partDataGrid.CurrentCell.RowIndex;
+                Inhouse selectPart = (Inhouse)partDataGrid.CurrentRow.DataBoundItem;
+                new ModifyPartForm(selectPart, partIndex).ShowDialog();
+            }
+            else
+            {
+                int partIndex = partDataGrid.CurrentCell.RowIndex;
+                Outsourced selectPart = (Outsourced)partDataGrid.CurrentRow.DataBoundItem;
+                new ModifyPartForm(selectPart, partIndex).ShowDialog();
+            }
+            
+            
         }
 
 

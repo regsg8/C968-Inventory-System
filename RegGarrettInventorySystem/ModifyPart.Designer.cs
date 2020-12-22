@@ -57,6 +57,7 @@ namespace RegGarrettInventorySystem
             this.cancelPart.TabIndex = 34;
             this.cancelPart.Text = "Cancel";
             this.cancelPart.UseVisualStyleBackColor = true;
+            this.cancelPart.Click += new System.EventHandler(this.cancelPart_Click);
             // 
             // savePart
             // 
@@ -66,6 +67,7 @@ namespace RegGarrettInventorySystem
             this.savePart.TabIndex = 33;
             this.savePart.Text = "Save";
             this.savePart.UseVisualStyleBackColor = true;
+            this.savePart.Click += new System.EventHandler(this.savePart_Click);
             // 
             // idBox
             // 
@@ -73,6 +75,7 @@ namespace RegGarrettInventorySystem
             this.idBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.idBox.Enabled = false;
             this.idBox.Location = new System.Drawing.Point(126, 42);
+            this.idBox.Mask = "000";
             this.idBox.Name = "idBox";
             this.idBox.ReadOnly = true;
             this.idBox.Size = new System.Drawing.Size(155, 20);
@@ -198,6 +201,7 @@ namespace RegGarrettInventorySystem
             this.outsourcedRadio.TabStop = true;
             this.outsourcedRadio.Text = "Outsourced";
             this.outsourcedRadio.UseVisualStyleBackColor = true;
+            this.outsourcedRadio.CheckedChanged += new System.EventHandler(this.outsourcedRadio_CheckedChanged);
             // 
             // inhouseRadio
             // 
@@ -209,6 +213,7 @@ namespace RegGarrettInventorySystem
             this.inhouseRadio.TabStop = true;
             this.inhouseRadio.Text = "In-House";
             this.inhouseRadio.UseVisualStyleBackColor = true;
+            this.inhouseRadio.CheckedChanged += new System.EventHandler(this.inhouseRadio_CheckedChanged);
             // 
             // ModifyPartForm
             // 
