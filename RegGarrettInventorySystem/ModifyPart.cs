@@ -32,7 +32,7 @@ namespace RegGarrettInventorySystem
         public ModifyPartForm(Outsourced outsourced, int pI)
         {
             InitializeComponent();
-            partIndex = pI + 1;
+            partIndex = pI;
             outsourcedRadio.Checked = true;
             variableLabel.Text = "Company Name";
             idBox.Text = outsourced.PartID.ToString();

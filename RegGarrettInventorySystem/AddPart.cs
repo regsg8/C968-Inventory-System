@@ -17,12 +17,6 @@ namespace RegGarrettInventorySystem
             InitializeComponent();
         }
 
-        private void AddPartForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
         //Navigation handlers
         private void savePart_Click(object sender, EventArgs e)
         {
@@ -64,16 +58,14 @@ namespace RegGarrettInventorySystem
                 {
                     int newID = (Inventory.Parts[Inventory.Parts.Count - 1].PartID + 1);
                     Inhouse newInhouse = new Inhouse(newID, nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), int.Parse(variableInput.Text));
-                    Inventory.Parts.Add(newInhouse);
-                    MessageBox.Show($"{nameInput.Text} added!");
+                    Inventory.AddPart(newInhouse);
                     this.Close();
                 }
                 else
                 {
                     int newID = (Inventory.Parts[Inventory.Parts.Count - 1].PartID + 1);
                     Outsourced newOutsourced = new Outsourced(newID, nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), variableInput.Text);
-                    Inventory.Parts.Add(newOutsourced);
-                    MessageBox.Show($"{nameInput.Text} added!");
+                    Inventory.AddPart(newOutsourced);
                     this.Close();
                 }
             }

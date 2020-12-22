@@ -246,7 +246,6 @@ namespace RegGarrettInventorySystem
             this.Controls.Add(this.inhouseRadio);
             this.Name = "AddPartForm";
             this.Text = "Add Part";
-            this.Load += new System.EventHandler(this.AddPartForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
