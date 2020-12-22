@@ -30,10 +30,13 @@ namespace RegGarrettInventorySystem
             Max = max;
         }
         //Associated Part methods
-        public void AddAssociatedPart(Part part) 
+        public void AddAssociatedPart(Outsourced part) 
         {
             AssociatedParts.Add(part);
-            MessageBox.Show($"{part.Name} added to product!");
+        }
+        public void AddAssociatedPart(Inhouse part)
+        {
+            AssociatedParts.Add(part);
         }
         public bool RemoveAssociatedPart(int id)
         {
@@ -42,7 +45,6 @@ namespace RegGarrettInventorySystem
             {
                 if (id == part.PartID)
                 {
-                    MessageBox.Show($"{part.Name} is no longer associated with the product!");
                     AssociatedParts.Remove(part);
                     found = true;
                 }

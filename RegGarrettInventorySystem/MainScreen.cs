@@ -16,8 +16,6 @@ namespace RegGarrettInventorySystem
         {
             InitializeComponent();
             setUpMainScreenDGV();
-            partDataGrid.ClearSelection();
-            MessageBox.Show("selection cleared from MainScreenForm initilization");
         }
 
         //Set up data grid
@@ -39,8 +37,6 @@ namespace RegGarrettInventorySystem
             partDataGrid.AllowUserToResizeColumns = false;
             partDataGrid.AllowUserToResizeRows = false;
             partDataGrid.MultiSelect = false;
-            partDataGrid.ClearSelection();
-            MessageBox.Show("selection should be cleared, from setUpMainScreenDGV");
 
             productDataGrid.Columns[0].HeaderText = "Product ID";
             productDataGrid.Columns[2].HeaderText = "Inventory";
@@ -51,7 +47,6 @@ namespace RegGarrettInventorySystem
             productDataGrid.AllowUserToResizeColumns = false;
             productDataGrid.AllowUserToResizeRows = false;
             productDataGrid.MultiSelect = false;
-            //productDataGrid.ClearSelection();
         }
 
         //Part event handlers
@@ -69,20 +64,17 @@ namespace RegGarrettInventorySystem
 
         private void partModifyButton_Click(object sender, EventArgs e)
         {
-            if(partDataGrid.CurrentRow.DataBoundItem.GetType() == Inventory.Parts[0].GetType())
+            int partIndex = partDataGrid.CurrentCell.RowIndex;
+            if (partDataGrid.CurrentRow.DataBoundItem.GetType() == Inventory.sampleInsource.GetType())
             {
-                int partIndex = partDataGrid.CurrentCell.RowIndex;
                 Inhouse selectPart = (Inhouse)partDataGrid.CurrentRow.DataBoundItem;
                 new ModifyPartForm(selectPart, partIndex).ShowDialog();
             }
             else
             {
-                int partIndex = partDataGrid.CurrentCell.RowIndex;
                 Outsourced selectPart = (Outsourced)partDataGrid.CurrentRow.DataBoundItem;
                 new ModifyPartForm(selectPart, partIndex).ShowDialog();
             }
-            
-            
         }
 
 
@@ -95,8 +87,7 @@ namespace RegGarrettInventorySystem
         private void productAddButton_Click(object sender, EventArgs e)
         {
             AddProductForm addProductForm = new AddProductForm();
-            addProductForm.Show();
-            this.Hide();
+            addProductForm.ShowDialog();
         }
 
         private void productModifyButton_Click(object sender, EventArgs e)
@@ -126,8 +117,6 @@ namespace RegGarrettInventorySystem
                 partDataGrid.DataSource = Inventory.Parts;
             }
             else partDataGrid.DataSource = searchResults;
-
-            partDataGrid.ClearSelection();
         }
 
         private void productSearchButton_Click(object sender, EventArgs e)
@@ -148,8 +137,6 @@ namespace RegGarrettInventorySystem
                 productDataGrid.DataSource = Inventory.Products;
             }
             else productDataGrid.DataSource = searchResults;
-
-            productDataGrid.ClearSelection();
         }
 
 

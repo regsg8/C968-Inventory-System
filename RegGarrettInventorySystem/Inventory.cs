@@ -12,6 +12,7 @@ namespace RegGarrettInventorySystem
     {
         public static BindingList<Product> Products = new BindingList<Product>();
         public static BindingList<Part> Parts = new BindingList<Part>();
+        public static Inhouse sampleInsource = new Inhouse();
 
         //Product methods
         public static void AddProduct(Product prod)

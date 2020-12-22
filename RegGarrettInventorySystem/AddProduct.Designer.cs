@@ -41,18 +41,18 @@ namespace RegGarrettInventorySystem
             this.inventoryLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
-            this.cancelPart = new System.Windows.Forms.Button();
-            this.savePart = new System.Windows.Forms.Button();
+            this.cancelProduct = new System.Windows.Forms.Button();
+            this.saveProduct = new System.Windows.Forms.Button();
             this.partSearchButton = new System.Windows.Forms.Button();
             this.partsSearch = new System.Windows.Forms.TextBox();
             this.partsLabel = new System.Windows.Forms.Label();
-            this.partDataGrid = new System.Windows.Forms.DataGridView();
+            this.partsDataGrid = new System.Windows.Forms.DataGridView();
             this.partAddButton = new System.Windows.Forms.Button();
             this.removePart = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.partDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.associatedPartsDataGrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.partsDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // idBox
@@ -160,23 +160,25 @@ namespace RegGarrettInventorySystem
             this.idLabel.Text = "ID";
             this.idLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // cancelPart
+            // cancelProduct
             // 
-            this.cancelPart.Location = new System.Drawing.Point(163, 388);
-            this.cancelPart.Name = "cancelPart";
-            this.cancelPart.Size = new System.Drawing.Size(75, 23);
-            this.cancelPart.TabIndex = 46;
-            this.cancelPart.Text = "Cancel";
-            this.cancelPart.UseVisualStyleBackColor = true;
+            this.cancelProduct.Location = new System.Drawing.Point(163, 388);
+            this.cancelProduct.Name = "cancelProduct";
+            this.cancelProduct.Size = new System.Drawing.Size(75, 23);
+            this.cancelProduct.TabIndex = 46;
+            this.cancelProduct.Text = "Cancel";
+            this.cancelProduct.UseVisualStyleBackColor = true;
+            this.cancelProduct.Click += new System.EventHandler(this.cancelProduct_Click);
             // 
-            // savePart
+            // saveProduct
             // 
-            this.savePart.Location = new System.Drawing.Point(76, 389);
-            this.savePart.Name = "savePart";
-            this.savePart.Size = new System.Drawing.Size(75, 23);
-            this.savePart.TabIndex = 45;
-            this.savePart.Text = "Save";
-            this.savePart.UseVisualStyleBackColor = true;
+            this.saveProduct.Location = new System.Drawing.Point(76, 389);
+            this.saveProduct.Name = "saveProduct";
+            this.saveProduct.Size = new System.Drawing.Size(75, 23);
+            this.saveProduct.TabIndex = 45;
+            this.saveProduct.Text = "Save";
+            this.saveProduct.UseVisualStyleBackColor = true;
+            this.saveProduct.Click += new System.EventHandler(this.saveProduct_Click);
             // 
             // partSearchButton
             // 
@@ -186,6 +188,7 @@ namespace RegGarrettInventorySystem
             this.partSearchButton.TabIndex = 50;
             this.partSearchButton.Text = "Search";
             this.partSearchButton.UseVisualStyleBackColor = true;
+            this.partSearchButton.Click += new System.EventHandler(this.partSearchButton_Click);
             // 
             // partsSearch
             // 
@@ -204,68 +207,70 @@ namespace RegGarrettInventorySystem
             this.partsLabel.TabIndex = 48;
             this.partsLabel.Text = "All Candidate Parts";
             // 
-            // partDataGrid
+            // partsDataGrid
             // 
-            this.partDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.partDataGrid.Location = new System.Drawing.Point(265, 35);
-            this.partDataGrid.Name = "partDataGrid";
-            this.partDataGrid.Size = new System.Drawing.Size(380, 141);
-            this.partDataGrid.TabIndex = 47;
+            this.partsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.partsDataGrid.Location = new System.Drawing.Point(265, 35);
+            this.partsDataGrid.Name = "partsDataGrid";
+            this.partsDataGrid.Size = new System.Drawing.Size(603, 141);
+            this.partsDataGrid.TabIndex = 47;
             // 
             // partAddButton
             // 
             this.partAddButton.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.partAddButton.Location = new System.Drawing.Point(595, 182);
+            this.partAddButton.Location = new System.Drawing.Point(818, 182);
             this.partAddButton.Name = "partAddButton";
             this.partAddButton.Size = new System.Drawing.Size(50, 23);
             this.partAddButton.TabIndex = 51;
             this.partAddButton.Text = "Add";
             this.partAddButton.UseVisualStyleBackColor = false;
+            this.partAddButton.Click += new System.EventHandler(this.partAddButton_Click);
             // 
             // removePart
             // 
             this.removePart.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.removePart.Location = new System.Drawing.Point(585, 358);
+            this.removePart.Location = new System.Drawing.Point(808, 367);
             this.removePart.Name = "removePart";
             this.removePart.Size = new System.Drawing.Size(60, 23);
             this.removePart.TabIndex = 56;
             this.removePart.Text = "Remove";
             this.removePart.UseVisualStyleBackColor = false;
+            this.removePart.Click += new System.EventHandler(this.removePart_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(265, 192);
+            this.label1.Location = new System.Drawing.Point(265, 201);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 13);
+            this.label1.Size = new System.Drawing.Size(201, 13);
             this.label1.TabIndex = 53;
-            this.label1.Text = "Associated Parts";
+            this.label1.Text = "Associated Parts with this Product";
             // 
-            // dataGridView1
+            // associatedPartsDataGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(265, 211);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(380, 141);
-            this.dataGridView1.TabIndex = 52;
+            this.associatedPartsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.associatedPartsDataGrid.Location = new System.Drawing.Point(265, 220);
+            this.associatedPartsDataGrid.Name = "associatedPartsDataGrid";
+            this.associatedPartsDataGrid.Size = new System.Drawing.Size(603, 141);
+            this.associatedPartsDataGrid.TabIndex = 52;
             // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(664, 441);
+            this.ClientSize = new System.Drawing.Size(887, 441);
             this.Controls.Add(this.removePart);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.associatedPartsDataGrid);
             this.Controls.Add(this.partAddButton);
             this.Controls.Add(this.partSearchButton);
             this.Controls.Add(this.partsSearch);
             this.Controls.Add(this.partsLabel);
-            this.Controls.Add(this.partDataGrid);
-            this.Controls.Add(this.cancelPart);
-            this.Controls.Add(this.savePart);
+            this.Controls.Add(this.partsDataGrid);
+            this.Controls.Add(this.cancelProduct);
+            this.Controls.Add(this.saveProduct);
             this.Controls.Add(this.idBox);
             this.Controls.Add(this.minInput);
             this.Controls.Add(this.minLabel);
@@ -280,8 +285,8 @@ namespace RegGarrettInventorySystem
             this.Controls.Add(this.idLabel);
             this.Name = "AddProductForm";
             this.Text = "Add Product";
-            ((System.ComponentModel.ISupportInitialize)(this.partDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,15 +306,15 @@ namespace RegGarrettInventorySystem
         private System.Windows.Forms.Label inventoryLabel;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label idLabel;
-        private System.Windows.Forms.Button cancelPart;
-        private System.Windows.Forms.Button savePart;
+        private System.Windows.Forms.Button cancelProduct;
+        private System.Windows.Forms.Button saveProduct;
         private System.Windows.Forms.Button partSearchButton;
         private System.Windows.Forms.TextBox partsSearch;
         private System.Windows.Forms.Label partsLabel;
-        private System.Windows.Forms.DataGridView partDataGrid;
+        private System.Windows.Forms.DataGridView partsDataGrid;
         private System.Windows.Forms.Button partAddButton;
         private System.Windows.Forms.Button removePart;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView associatedPartsDataGrid;
     }
 }
