@@ -92,6 +92,7 @@ namespace RegGarrettInventorySystem
                     MessageBox.Show($"{part.Name} has been removed!");
                     Parts.Remove(part);
                     found = true;
+                    return found;
                 }
             }
             if (found == false)

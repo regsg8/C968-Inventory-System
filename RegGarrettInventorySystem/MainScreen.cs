@@ -57,7 +57,8 @@ namespace RegGarrettInventorySystem
         //Part event handlers
         private void partDeleteButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("part delete Button clicked");
+            int partID = int.Parse(partDataGrid.Rows[partDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            Inventory.DeletePart(partID);
         }
 
         private void partAddButton_Click(object sender, EventArgs e)
