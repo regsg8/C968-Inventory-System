@@ -128,18 +128,18 @@ namespace RegGarrettInventorySystem
                 this.Hide();
                 int newID = (Inventory.Products[Inventory.Products.Count - 1].ProductID + 1);
                 Product newProduct = new Product(newID, nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text));
-                Inventory.AddProduct(newProduct);
+                Inventory.addProduct(newProduct);
                 for (int i = 0; i < tempAssParts.Count; i++)
                 {
                     if (tempAssParts[i].GetType() == Inventory.sampleInsource.GetType())
                     {
                         Inhouse currentPart = (Inhouse)tempAssParts[i];
-                        Inventory.LookupProduct(newID).AddAssociatedPart(currentPart);
+                        Inventory.lookupProduct(newID).AddAssociatedPart(currentPart);
                     }
                     else
                     {
                         Outsourced currentPart = (Outsourced)tempAssParts[i];
-                        Inventory.LookupProduct(newID).AddAssociatedPart(currentPart);
+                        Inventory.lookupProduct(newID).AddAssociatedPart(currentPart);
                     }
                 }
                 

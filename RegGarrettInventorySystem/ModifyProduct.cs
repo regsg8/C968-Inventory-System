@@ -38,6 +38,7 @@ namespace RegGarrettInventorySystem
             dgv.DefaultCellStyle.SelectionBackColor = Color.DarkOrange;
             dgv.AllowUserToResizeColumns = false;
             dgv.AllowUserToResizeRows = false;
+            dgv.ReadOnly = true;
             dgv.MultiSelect = false;
         }
         private void setUpDataGrids()

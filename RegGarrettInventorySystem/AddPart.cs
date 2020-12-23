@@ -58,14 +58,14 @@ namespace RegGarrettInventorySystem
                 {
                     int newID = (Inventory.Parts[Inventory.Parts.Count - 1].PartID + 1);
                     Inhouse newInhouse = new Inhouse(newID, nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), int.Parse(variableInput.Text));
-                    Inventory.AddPart(newInhouse);
+                    Inventory.addPart(newInhouse);
                     this.Close();
                 }
                 else
                 {
                     int newID = (Inventory.Parts[Inventory.Parts.Count - 1].PartID + 1);
                     Outsourced newOutsourced = new Outsourced(newID, nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), variableInput.Text);
-                    Inventory.AddPart(newOutsourced);
+                    Inventory.addPart(newOutsourced);
                     this.Close();
                 }
             }

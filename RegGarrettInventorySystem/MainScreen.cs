@@ -36,6 +36,7 @@ namespace RegGarrettInventorySystem
             partDataGrid.DefaultCellStyle.SelectionBackColor = Color.DarkOrange;
             partDataGrid.AllowUserToResizeColumns = false;
             partDataGrid.AllowUserToResizeRows = false;
+            partDataGrid.ReadOnly = true;
             partDataGrid.MultiSelect = false;
 
             productDataGrid.Columns[0].HeaderText = "Product ID";
@@ -46,6 +47,7 @@ namespace RegGarrettInventorySystem
             productDataGrid.DefaultCellStyle.SelectionBackColor = Color.Brown;
             productDataGrid.AllowUserToResizeColumns = false;
             productDataGrid.AllowUserToResizeRows = false;
+            productDataGrid.ReadOnly = true;
             productDataGrid.MultiSelect = false;
         }
 
@@ -53,7 +55,7 @@ namespace RegGarrettInventorySystem
         private void partDeleteButton_Click(object sender, EventArgs e)
         {
             int partID = int.Parse(partDataGrid.Rows[partDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
-            Inventory.DeletePart(partID);
+            Inventory.deletePart(partID);
         }
 
         private void partAddButton_Click(object sender, EventArgs e)

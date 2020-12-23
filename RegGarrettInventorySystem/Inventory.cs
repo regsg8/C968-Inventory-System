@@ -15,11 +15,11 @@ namespace RegGarrettInventorySystem
         public static Inhouse sampleInsource = new Inhouse();
 
         //Product methods
-        public static void AddProduct(Product prod)
+        public static void addProduct(Product prod)
         {
             Products.Add(prod);
         }
-        public static bool RemoveProduct(int id)
+        public static bool removeProduct(int id)
         {
             bool found = false;
             foreach (Product prod in Products)
@@ -37,7 +37,7 @@ namespace RegGarrettInventorySystem
             }
             return found;
         }
-        public static Product LookupProduct(int id)
+        public static Product lookupProduct(int id)
         {
             bool found = false;
             foreach (Product prod in Products)
@@ -55,7 +55,7 @@ namespace RegGarrettInventorySystem
             Product prodNotFound = new Product();
             return prodNotFound;
         }
-        public static void UpdateProduct(int id, Product prodUpdate)
+        public static void updateProduct(int id, Product prodUpdate)
         {
             bool found = false;
             foreach (Product prod in Products)
@@ -78,11 +78,11 @@ namespace RegGarrettInventorySystem
         }
 
         //Part methods
-        public static void AddPart(Part part)
+        public static void addPart(Part part)
         {
             Parts.Add(part);
         }
-        public static bool DeletePart(int id)
+        public static bool deletePart(int id)
         {
             bool found = false;
             foreach (Part part in Parts)
@@ -101,7 +101,7 @@ namespace RegGarrettInventorySystem
             }
             return found;
         }
-        public static Part LookupPart(int id)
+        public static Part lookupPart(int id)
         {
             bool found = false;
             foreach (Part part in Parts)
@@ -119,7 +119,7 @@ namespace RegGarrettInventorySystem
             Part partNotFound = new Outsourced();
             return partNotFound;
         }
-        public static void UpdatePart(int id, Part partUpdate)
+        public static void updatePart(int id, Part partUpdate)
         {
             bool found = false;
             foreach (Part part in Parts)
