@@ -145,13 +145,6 @@ namespace RegGarrettInventorySystem
             }
             else
             {
-
-                //Inhouse newInhouse = new Inhouse(int.Parse(idBox.Text), nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), int.Parse(variableInput.Text));
-                //Inventory.Parts.RemoveAt(partIndex);
-                //Inventory.Parts.Insert(partIndex, newInhouse);
-                //MessageBox.Show($"{nameInput.Text} saved!");
-                //this.Close();
-
                 this.Hide();
                 Product newProduct = new Product(int.Parse(idBox.Text), nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text));
                 Inventory.Products.RemoveAt(productIndex);

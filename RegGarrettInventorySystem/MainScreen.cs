@@ -83,7 +83,8 @@ namespace RegGarrettInventorySystem
         //Product event handlers
         private void productDeleteButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("product delete Button clicked");
+            int productID = int.Parse(productDataGrid.Rows[partDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            Inventory.removeProduct(productID);
         }
 
         private void productAddButton_Click(object sender, EventArgs e)

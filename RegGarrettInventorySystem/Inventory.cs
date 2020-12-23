@@ -26,14 +26,17 @@ namespace RegGarrettInventorySystem
             {
                 if (id == prod.ProductID)
                 {
-                    MessageBox.Show($"{prod.Name} has been removed!");
-                    Products.Remove(prod);
-                    found = true;
+                    if (prod.AssociatedParts.Count != 0)
+                    {
+                        MessageBox.Show($"{prod.Name} has associated parts.  You must remove all associated parts before deleting this product.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"{prod.Name} has been removed!");
+                        Products.Remove(prod);
+                        found = true;
+                    }
                 }
-            }
-            if (found == false)
-            {
-                MessageBox.Show("Error: Product not removed.");
             }
             return found;
         }
