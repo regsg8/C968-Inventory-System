@@ -50,7 +50,7 @@ namespace RegGarrettInventorySystem
             productDataGrid.ReadOnly = true;
             productDataGrid.MultiSelect = false;
         }
-
+        
         //Part event handlers
         private void partDeleteButton_Click(object sender, EventArgs e)
         {
@@ -83,7 +83,7 @@ namespace RegGarrettInventorySystem
         //Product event handlers
         private void productDeleteButton_Click(object sender, EventArgs e)
         {
-            int productID = int.Parse(productDataGrid.Rows[partDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            int productID = int.Parse(productDataGrid.Rows[productDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
             Inventory.removeProduct(productID);
         }
 
@@ -95,9 +95,11 @@ namespace RegGarrettInventorySystem
 
         private void productModifyButton_Click(object sender, EventArgs e)
         {
-            int productIndex = partDataGrid.CurrentCell.RowIndex;
-            Product selectProduct = (Product)productDataGrid.CurrentRow.DataBoundItem;
-            new ModifyProductForm(selectProduct, productIndex).ShowDialog();
+            int productID = int.Parse(productDataGrid.Rows[productDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            new ModifyProductForm(Inventory.lookupProduct(productID)).ShowDialog();
+            //int productIndex = partDataGrid.CurrentCell.RowIndex;
+            //Product selectProduct = (Product)productDataGrid.CurrentRow.DataBoundItem;
+            //new ModifyProductForm(selectProduct, productIndex).ShowDialog();
         }
 
 

@@ -14,11 +14,9 @@ namespace RegGarrettInventorySystem
     {
         private BindingList<Part> prodAssParts = new BindingList<Part>();
         private BindingList<Part> tempAllParts = new BindingList<Part>();
-        private int productIndex;
-        public ModifyProductForm(Product product, int pI)
+        public ModifyProductForm(Product product)
         {
             InitializeComponent();
-            productIndex = pI;
             idBox.Text = product.ProductID.ToString();
             nameInput.Text = product.Name;
             inventoryInput.Text = product.InStock.ToString();
@@ -146,11 +144,13 @@ namespace RegGarrettInventorySystem
             else
             {
                 this.Hide();
-                Product newProduct = new Product(int.Parse(idBox.Text), nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text));
-                Inventory.Products.RemoveAt(productIndex);
-                Inventory.Products.Insert(productIndex, newProduct);
-                Inventory.Products[productIndex].AssociatedParts = prodAssParts;
-                MessageBox.Show($"{newProduct.Name} saved!");
+
+                Product updatedProduct = new Product(int.Parse(idBox.Text), nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text));
+                Inventory.updateProduct(updatedProduct.ProductID, updatedProduct);
+                //Inventory.Products.RemoveAt(productIndex);
+                //Inventory.Products.Insert(productIndex, newProduct);
+                //Inventory.Products[productIndex].AssociatedParts = prodAssParts;
+                //MessageBox.Show($"{newProduct.Name} saved!");
                 this.Close();
             }
         }

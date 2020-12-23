@@ -60,24 +60,26 @@ namespace RegGarrettInventorySystem
         }
         public static void updateProduct(int id, Product prodUpdate)
         {
-            bool found = false;
-            foreach (Product prod in Products)
+            for (int i = 0; i < Products.Count; i++)
             {
-                if (prod.ProductID == id)
+                if(Products[i].ProductID == id)
                 {
-                    prod.Name = prodUpdate.Name;
-                    prod.Price = prodUpdate.Price;
-                    prod.InStock = prodUpdate.InStock;
-                    prod.Min = prodUpdate.Min;
-                    prod.Max = prodUpdate.Max;
-                    found = true;
-                    MessageBox.Show($"{prod.Name} updated!");
+                    Products.RemoveAt(i);
+                    Products.Insert(i, prodUpdate);
                 }
             }
-            if (found == false)
-            {
-                MessageBox.Show("Error: Product not updated.");
-            }
+            //foreach (Product prod in Products)
+            //{
+            //    if (prod.ProductID == id)
+            //    {
+            //        prod.Name = prodUpdate.Name;
+            //        prod.Price = prodUpdate.Price;
+            //        prod.InStock = prodUpdate.InStock;
+            //        prod.Min = prodUpdate.Min;
+            //        prod.Max = prodUpdate.Max;
+            //        MessageBox.Show($"{prodUpdate.Name} updated!");
+            //    }
+            //}
         }
 
         //Part methods
@@ -124,7 +126,6 @@ namespace RegGarrettInventorySystem
         }
         public static void updatePart(int id, Inhouse partUpdate)
         {
-            //bool found = false;
             for (int i = 0; i < Parts.Count; i++)
             {
                 if (Parts[i].PartID == id)
@@ -134,24 +135,6 @@ namespace RegGarrettInventorySystem
                     MessageBox.Show($"{partUpdate.Name} updated!");
                 }
             }
-            //foreach (Part part in Parts)
-            //{
-            //    if (part.PartID == id)
-            //    {
-            //        part.Name = partUpdate.Name;
-            //        part.Price = partUpdate.Price;
-            //        part.InStock = partUpdate.InStock;
-            //        part.Min = partUpdate.Min;
-            //        part.Max = partUpdate.Max;
-            //        found = true;
-            //        MessageBox.Show($"{part.Name} updated!");
-            //    }
-
-           // }
-            //if (found == false)
-            //{
-            //    MessageBox.Show("Error: Part not updated.");
-            //}
         }
         public static void updatePart(int id, Outsourced partUpdate)
         {
@@ -164,24 +147,6 @@ namespace RegGarrettInventorySystem
                     MessageBox.Show($"{partUpdate.Name} updated!");
                 }
             }
-            //bool found = false;
-            //foreach (Part part in Parts)
-            //{
-            //    if (part.PartID == id)
-            //    {
-            //        part.Name = partUpdate.Name;
-            //        part.Price = partUpdate.Price;
-            //        part.InStock = partUpdate.InStock;
-            //        part.Min = partUpdate.Min;
-            //        part.Max = partUpdate.Max;
-            //        found = true;
-            //        MessageBox.Show($"{part.Name} updated!");
-            //    }
-            //}
-            //if (found == false)
-            //{
-            //    MessageBox.Show("Error: Part not updated.");
-            //}
         }
 
         //Populate data grid

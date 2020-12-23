@@ -83,18 +83,12 @@ namespace RegGarrettInventorySystem
                 {
                     Inhouse newInhouse = new Inhouse(int.Parse(idBox.Text), nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), int.Parse(variableInput.Text));
                     Inventory.updatePart(newInhouse.PartID, newInhouse);
-                    // Inventory.Parts.RemoveAt(partIndex);
-                   // Inventory.Parts.Insert(partIndex, newInhouse);
-                    MessageBox.Show($"{nameInput.Text} saved!");
                     this.Close();
                 }
                 else 
                 {
                     Outsourced newOutsourced = new Outsourced(int.Parse(idBox.Text), nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), variableInput.Text);
                     Inventory.updatePart(newOutsourced.PartID, newOutsourced);
-                  //  Inventory.Parts.RemoveAt(partIndex);
-                  //  Inventory.Parts.Insert(partIndex, newOutsourced);
-                    MessageBox.Show($"{nameInput.Text} saved!");
                     this.Close();
                 }
             }
