@@ -99,6 +99,11 @@ namespace RegGarrettInventorySystem
 
         private void saveProduct_Click(object sender, EventArgs e)
         {
+            bool checkDigits(string s) => int.TryParse(s, out int i);
+            bool invNum = checkDigits(inventoryInput.Text);
+            bool maxNum = checkDigits(maxInput.Text);
+            bool minNum = checkDigits(minInput.Text);
+            bool priceNum = checkDigits(priceInput.Text);
             if (nameInput.Text == "")
             {
                 MessageBox.Show("Please provide a name for the new product in the Name field.");
@@ -118,6 +123,10 @@ namespace RegGarrettInventorySystem
             else if (minInput.Text == "")
             {
                 MessageBox.Show("Please provide a minimum amount of units in the Min field.");
+            }
+            else if (!invNum || !maxNum || !minNum || !priceNum)
+            {
+                MessageBox.Show("Inventory, Max, Min, and Price fields all must be numbers.");
             }
             else if (int.Parse(maxInput.Text) < int.Parse(minInput.Text))
             {
