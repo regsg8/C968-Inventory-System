@@ -12,12 +12,10 @@ namespace RegGarrettInventorySystem
 {
     public partial class ModifyPartForm : Form
     {
-        private int partIndex;
 
-        public ModifyPartForm(Inhouse inhouse, int pI)
+        public ModifyPartForm(Inhouse inhouse)
         {
             InitializeComponent();
-            partIndex = pI;
             inhouseRadio.Checked = true;
             variableLabel.Text = "Machine ID";
             idBox.Text = inhouse.PartID.ToString();
@@ -29,10 +27,9 @@ namespace RegGarrettInventorySystem
             variableInput.Text = inhouse.MachineID.ToString();
         }
 
-        public ModifyPartForm(Outsourced outsourced, int pI)
+        public ModifyPartForm(Outsourced outsourced)
         {
             InitializeComponent();
-            partIndex = pI;
             outsourcedRadio.Checked = true;
             variableLabel.Text = "Company Name";
             idBox.Text = outsourced.PartID.ToString();
@@ -85,16 +82,18 @@ namespace RegGarrettInventorySystem
                 if (inhouseRadio.Checked)
                 {
                     Inhouse newInhouse = new Inhouse(int.Parse(idBox.Text), nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), int.Parse(variableInput.Text));
-                    Inventory.Parts.RemoveAt(partIndex);
-                    Inventory.Parts.Insert(partIndex, newInhouse);
+                    Inventory.updatePart(newInhouse.PartID, newInhouse);
+                    // Inventory.Parts.RemoveAt(partIndex);
+                   // Inventory.Parts.Insert(partIndex, newInhouse);
                     MessageBox.Show($"{nameInput.Text} saved!");
                     this.Close();
                 }
                 else 
                 {
                     Outsourced newOutsourced = new Outsourced(int.Parse(idBox.Text), nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), variableInput.Text);
-                    Inventory.Parts.RemoveAt(partIndex);
-                    Inventory.Parts.Insert(partIndex, newOutsourced);
+                    Inventory.updatePart(newOutsourced.PartID, newOutsourced);
+                  //  Inventory.Parts.RemoveAt(partIndex);
+                  //  Inventory.Parts.Insert(partIndex, newOutsourced);
                     MessageBox.Show($"{nameInput.Text} saved!");
                     this.Close();
                 }

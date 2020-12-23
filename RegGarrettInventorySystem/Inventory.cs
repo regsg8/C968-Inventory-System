@@ -122,26 +122,66 @@ namespace RegGarrettInventorySystem
             Part partNotFound = new Outsourced();
             return partNotFound;
         }
-        public static void updatePart(int id, Part partUpdate)
+        public static void updatePart(int id, Inhouse partUpdate)
         {
-            bool found = false;
-            foreach (Part part in Parts)
+            //bool found = false;
+            for (int i = 0; i < Parts.Count; i++)
             {
-                if (part.PartID == id)
+                if (Parts[i].PartID == id)
                 {
-                    part.Name = partUpdate.Name;
-                    part.Price = partUpdate.Price;
-                    part.InStock = partUpdate.InStock;
-                    part.Min = partUpdate.Min;
-                    part.Max = partUpdate.Max;
-                    found = true;
-                    MessageBox.Show($"{part.Name} updated!");
+                    Parts.RemoveAt(i);
+                    Parts.Insert(i, partUpdate);
+                    MessageBox.Show($"{partUpdate.Name} updated!");
                 }
             }
-            if (found == false)
+            //foreach (Part part in Parts)
+            //{
+            //    if (part.PartID == id)
+            //    {
+            //        part.Name = partUpdate.Name;
+            //        part.Price = partUpdate.Price;
+            //        part.InStock = partUpdate.InStock;
+            //        part.Min = partUpdate.Min;
+            //        part.Max = partUpdate.Max;
+            //        found = true;
+            //        MessageBox.Show($"{part.Name} updated!");
+            //    }
+
+           // }
+            //if (found == false)
+            //{
+            //    MessageBox.Show("Error: Part not updated.");
+            //}
+        }
+        public static void updatePart(int id, Outsourced partUpdate)
+        {
+            for (int i = 0; i < Parts.Count; i++)
             {
-                MessageBox.Show("Error: Part not updated.");
+                if (Parts[i].PartID == id)
+                {
+                    Parts.RemoveAt(i);
+                    Parts.Insert(i, partUpdate);
+                    MessageBox.Show($"{partUpdate.Name} updated!");
+                }
             }
+            //bool found = false;
+            //foreach (Part part in Parts)
+            //{
+            //    if (part.PartID == id)
+            //    {
+            //        part.Name = partUpdate.Name;
+            //        part.Price = partUpdate.Price;
+            //        part.InStock = partUpdate.InStock;
+            //        part.Min = partUpdate.Min;
+            //        part.Max = partUpdate.Max;
+            //        found = true;
+            //        MessageBox.Show($"{part.Name} updated!");
+            //    }
+            //}
+            //if (found == false)
+            //{
+            //    MessageBox.Show("Error: Part not updated.");
+            //}
         }
 
         //Populate data grid
