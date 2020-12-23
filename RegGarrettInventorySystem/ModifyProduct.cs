@@ -14,9 +14,11 @@ namespace RegGarrettInventorySystem
     {
         private BindingList<Part> prodAssParts = new BindingList<Part>();
         private BindingList<Part> tempAllParts = new BindingList<Part>();
+        private int mainID;
         public ModifyProductForm(Product product)
         {
             InitializeComponent();
+            mainID = product.ProductID;
             idBox.Text = product.ProductID.ToString();
             nameInput.Text = product.Name;
             inventoryInput.Text = product.InStock.ToString();
@@ -87,31 +89,31 @@ namespace RegGarrettInventorySystem
             if (partsDataGrid.CurrentRow.DataBoundItem.GetType() == Inventory.sampleInsource.GetType())
             {
                 Inhouse selectPart = (Inhouse)partsDataGrid.CurrentRow.DataBoundItem;
-                prodAssParts.Add(selectPart);
+                Inventory.lookupProduct(mainID).AddAssociatedPart(selectPart);
                 tempAllParts.RemoveAt(partIndex);
             }
             else
             {
                 Outsourced selectPart = (Outsourced)partsDataGrid.CurrentRow.DataBoundItem;
-                prodAssParts.Add(selectPart);
+                Inventory.lookupProduct(mainID).AddAssociatedPart(selectPart);
                 tempAllParts.RemoveAt(partIndex);
             }
         }
 
         private void removePart_Click(object sender, EventArgs e)
         {
-            int partIndex = associatedPartsDataGrid.CurrentCell.RowIndex;
+            int partID = int.Parse(associatedPartsDataGrid.Rows[associatedPartsDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
             if (associatedPartsDataGrid.CurrentRow.DataBoundItem.GetType() == Inventory.sampleInsource.GetType())
             {
                 Inhouse selectPart = (Inhouse)associatedPartsDataGrid.CurrentRow.DataBoundItem;
                 tempAllParts.Add(selectPart);
-                prodAssParts.RemoveAt(partIndex);
+                Inventory.lookupProduct(mainID).RemoveAssociatedPart(partID);
             }
             else
             {
                 Outsourced selectPart = (Outsourced)associatedPartsDataGrid.CurrentRow.DataBoundItem;
                 tempAllParts.Add(selectPart);
-                prodAssParts.RemoveAt(partIndex);
+                Inventory.lookupProduct(mainID).RemoveAssociatedPart(partID);
             }
         }
 
@@ -145,12 +147,8 @@ namespace RegGarrettInventorySystem
             {
                 this.Hide();
 
-                Product updatedProduct = new Product(int.Parse(idBox.Text), nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text));
+                Product updatedProduct = new Product(int.Parse(idBox.Text), nameInput.Text, int.Parse(inventoryInput.Text), decimal.Parse(priceInput.Text), int.Parse(minInput.Text), int.Parse(maxInput.Text), prodAssParts);
                 Inventory.updateProduct(updatedProduct.ProductID, updatedProduct);
-                //Inventory.Products.RemoveAt(productIndex);
-                //Inventory.Products.Insert(productIndex, newProduct);
-                //Inventory.Products[productIndex].AssociatedParts = prodAssParts;
-                //MessageBox.Show($"{newProduct.Name} saved!");
                 this.Close();
             }
         }

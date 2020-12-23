@@ -68,18 +68,6 @@ namespace RegGarrettInventorySystem
                     Products.Insert(i, prodUpdate);
                 }
             }
-            //foreach (Product prod in Products)
-            //{
-            //    if (prod.ProductID == id)
-            //    {
-            //        prod.Name = prodUpdate.Name;
-            //        prod.Price = prodUpdate.Price;
-            //        prod.InStock = prodUpdate.InStock;
-            //        prod.Min = prodUpdate.Min;
-            //        prod.Max = prodUpdate.Max;
-            //        MessageBox.Show($"{prodUpdate.Name} updated!");
-            //    }
-            //}
         }
 
         //Part methods

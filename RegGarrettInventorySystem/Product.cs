@@ -29,6 +29,16 @@ namespace RegGarrettInventorySystem
             Min = min;
             Max = max;
         }
+        public Product(int prodID, string name, int inStock, decimal price, int min, int max, BindingList<Part> associatedParts)
+        {
+            ProductID = prodID;
+            Name = name;
+            InStock = inStock;
+            Price = price;
+            Min = min;
+            Max = max;
+            AssociatedParts = associatedParts;
+        }
         //Associated Part methods
         public void AddAssociatedPart(Outsourced part) 
         {
@@ -41,17 +51,13 @@ namespace RegGarrettInventorySystem
         public bool RemoveAssociatedPart(int id)
         {
             bool found = false;
-            foreach (Part part in AssociatedParts)
+            for (int i = 0; i < AssociatedParts.Count; i++)
             {
-                if (id == part.PartID)
+                if (id == AssociatedParts[i].PartID)
                 {
-                    AssociatedParts.Remove(part);
+                    AssociatedParts.RemoveAt(i);
                     found = true;
                 }
-            }
-            if (found == false)
-            {
-                MessageBox.Show("Error: Associated part not removed.");
             }
             return found;
         }
