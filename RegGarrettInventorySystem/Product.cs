@@ -40,15 +40,15 @@ namespace RegGarrettInventorySystem
             AssociatedParts = associatedParts;
         }
         //Associated Part methods
-        public void AddAssociatedPart(Outsourced part) 
+        public void addAssociatedPart(Outsourced part) 
         {
             AssociatedParts.Add(part);
         }
-        public void AddAssociatedPart(Inhouse part)
+        public void addAssociatedPart(Inhouse part)
         {
             AssociatedParts.Add(part);
         }
-        public bool RemoveAssociatedPart(int id)
+        public bool removeAssociatedPart(int id)
         {
             bool found = false;
             for (int i = 0; i < AssociatedParts.Count; i++)
@@ -61,7 +61,7 @@ namespace RegGarrettInventorySystem
             }
             return found;
         }
-        public Part LookupAssociatedPart (int id)
+        public Part lookupAssociatedPart (int id)
         {
             bool found = false;
             foreach (Part part in AssociatedParts)

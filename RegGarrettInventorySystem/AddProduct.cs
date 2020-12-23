@@ -123,6 +123,10 @@ namespace RegGarrettInventorySystem
             {
                 MessageBox.Show("Maximum amount cannot be less than Minimum amount.");
             }
+            else if (int.Parse(maxInput.Text) < int.Parse(inventoryInput.Text) || (int.Parse(minInput.Text) > int.Parse(inventoryInput.Text)))
+            {
+                MessageBox.Show("Inventory level must be between the Minimum and Maximum amounts.");
+            }
             else
             {
                 this.Hide();
@@ -134,12 +138,12 @@ namespace RegGarrettInventorySystem
                     if (tempAssParts[i].GetType() == Inventory.sampleInsource.GetType())
                     {
                         Inhouse currentPart = (Inhouse)tempAssParts[i];
-                        Inventory.lookupProduct(newID).AddAssociatedPart(currentPart);
+                        Inventory.lookupProduct(newID).addAssociatedPart(currentPart);
                     }
                     else
                     {
                         Outsourced currentPart = (Outsourced)tempAssParts[i];
-                        Inventory.lookupProduct(newID).AddAssociatedPart(currentPart);
+                        Inventory.lookupProduct(newID).addAssociatedPart(currentPart);
                     }
                 }
                 

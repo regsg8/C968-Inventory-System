@@ -38,22 +38,6 @@ namespace RegGarrettInventorySystem
                     }
                 }
             }
-            //foreach (Product prod in Products)
-            //{
-            //    if (id == prod.ProductID)
-            //    {
-            //if (prod.AssociatedParts.Count != 0)
-            //{
-            //    MessageBox.Show($"{prod.Name} has associated parts.  You must remove all associated parts before deleting this product.");
-            //}
-            //else
-            //{
-            //    MessageBox.Show($"{prod.Name} has been removed!");
-            //    Products.Remove(prod);
-            //    found = true;
-            //}
-            //    }
-            //}
             return found;
         }
         public static Product lookupProduct(int id)

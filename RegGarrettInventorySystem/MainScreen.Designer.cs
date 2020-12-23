@@ -237,7 +237,7 @@ namespace RegGarrettInventorySystem
         #endregion
 
         private System.Windows.Forms.DataGridView partDataGrid;
-        public System.Windows.Forms.DataGridView productDataGrid;
+        private System.Windows.Forms.DataGridView productDataGrid;
         private System.Windows.Forms.Button partDeleteButton;
         private System.Windows.Forms.Button partModifyButton;
         private System.Windows.Forms.Button partAddButton;

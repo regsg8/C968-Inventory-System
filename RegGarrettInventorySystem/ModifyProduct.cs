@@ -89,13 +89,13 @@ namespace RegGarrettInventorySystem
             if (partsDataGrid.CurrentRow.DataBoundItem.GetType() == Inventory.sampleInsource.GetType())
             {
                 Inhouse selectPart = (Inhouse)partsDataGrid.CurrentRow.DataBoundItem;
-                Inventory.lookupProduct(mainID).AddAssociatedPart(selectPart);
+                Inventory.lookupProduct(mainID).addAssociatedPart(selectPart);
                 tempAllParts.RemoveAt(partIndex);
             }
             else
             {
                 Outsourced selectPart = (Outsourced)partsDataGrid.CurrentRow.DataBoundItem;
-                Inventory.lookupProduct(mainID).AddAssociatedPart(selectPart);
+                Inventory.lookupProduct(mainID).addAssociatedPart(selectPart);
                 tempAllParts.RemoveAt(partIndex);
             }
         }
@@ -107,13 +107,13 @@ namespace RegGarrettInventorySystem
             {
                 Inhouse selectPart = (Inhouse)associatedPartsDataGrid.CurrentRow.DataBoundItem;
                 tempAllParts.Add(selectPart);
-                Inventory.lookupProduct(mainID).RemoveAssociatedPart(partID);
+                Inventory.lookupProduct(mainID).removeAssociatedPart(partID);
             }
             else
             {
                 Outsourced selectPart = (Outsourced)associatedPartsDataGrid.CurrentRow.DataBoundItem;
                 tempAllParts.Add(selectPart);
-                Inventory.lookupProduct(mainID).RemoveAssociatedPart(partID);
+                Inventory.lookupProduct(mainID).removeAssociatedPart(partID);
             }
         }
 
