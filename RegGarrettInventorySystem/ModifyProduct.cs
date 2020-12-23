@@ -143,6 +143,10 @@ namespace RegGarrettInventorySystem
             {
                 MessageBox.Show("Maximum amount cannot be less than Minimum amount.");
             }
+            else if (int.Parse(maxInput.Text) < int.Parse(inventoryInput.Text) || (int.Parse(minInput.Text) > int.Parse(inventoryInput.Text)))
+            {
+                MessageBox.Show("Inventory level must be between the Minimum and Maximum amounts.");
+            }
             else
             {
                 this.Hide();

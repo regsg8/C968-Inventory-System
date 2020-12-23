@@ -22,22 +22,38 @@ namespace RegGarrettInventorySystem
         public static bool removeProduct(int id)
         {
             bool found = false;
-            foreach (Product prod in Products)
+            for (int i = 0; i < Products.Count; i++)
             {
-                if (id == prod.ProductID)
+                if (id == Products[i].ProductID)
                 {
-                    if (prod.AssociatedParts.Count != 0)
+                    if (Products[i].AssociatedParts.Count != 0)
                     {
-                        MessageBox.Show($"{prod.Name} has associated parts.  You must remove all associated parts before deleting this product.");
+                        MessageBox.Show($"{Products[i].Name} has associated parts.  You must remove all associated parts before deleting this product.");
                     }
                     else
                     {
-                        MessageBox.Show($"{prod.Name} has been removed!");
-                        Products.Remove(prod);
+                        MessageBox.Show($"{Products[i].Name} has been removed!");
+                        Products.Remove(Products[i]);
                         found = true;
                     }
                 }
             }
+            //foreach (Product prod in Products)
+            //{
+            //    if (id == prod.ProductID)
+            //    {
+            //if (prod.AssociatedParts.Count != 0)
+            //{
+            //    MessageBox.Show($"{prod.Name} has associated parts.  You must remove all associated parts before deleting this product.");
+            //}
+            //else
+            //{
+            //    MessageBox.Show($"{prod.Name} has been removed!");
+            //    Products.Remove(prod);
+            //    found = true;
+            //}
+            //    }
+            //}
             return found;
         }
         public static Product lookupProduct(int id)

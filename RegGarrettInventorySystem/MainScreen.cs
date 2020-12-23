@@ -54,8 +54,12 @@ namespace RegGarrettInventorySystem
         //Part event handlers
         private void partDeleteButton_Click(object sender, EventArgs e)
         {
-            int partID = int.Parse(partDataGrid.Rows[partDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
-            Inventory.deletePart(partID);
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this part?", "Delete Confirmation", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                int partID = int.Parse(partDataGrid.Rows[partDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                Inventory.deletePart(partID);
+            }
         }
 
         private void partAddButton_Click(object sender, EventArgs e)
@@ -83,8 +87,12 @@ namespace RegGarrettInventorySystem
         //Product event handlers
         private void productDeleteButton_Click(object sender, EventArgs e)
         {
-            int productID = int.Parse(productDataGrid.Rows[productDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
-            Inventory.removeProduct(productID);
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this product?", "Delete Confirmation", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                int productID = int.Parse(productDataGrid.Rows[productDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                Inventory.removeProduct(productID);
+            }
         }
 
         private void productAddButton_Click(object sender, EventArgs e)
@@ -97,9 +105,6 @@ namespace RegGarrettInventorySystem
         {
             int productID = int.Parse(productDataGrid.Rows[productDataGrid.CurrentCell.RowIndex].Cells[0].Value.ToString());
             new ModifyProductForm(Inventory.lookupProduct(productID)).ShowDialog();
-            //int productIndex = partDataGrid.CurrentCell.RowIndex;
-            //Product selectProduct = (Product)productDataGrid.CurrentRow.DataBoundItem;
-            //new ModifyProductForm(selectProduct, productIndex).ShowDialog();
         }
 
 
